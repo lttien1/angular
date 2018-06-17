@@ -13,7 +13,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
-  styleUrls: ['./signup.component.css']
+  styleUrls: ['./signup.component.scss']
 })
 
 export class SignupComponent implements OnInit {
@@ -21,10 +21,24 @@ export class SignupComponent implements OnInit {
   ngOnInit() {
   }
 
+  firstNameFormControl = new FormControl('', [
+    Validators.required,
+  ]);
+
+  lastNameFormControl = new FormControl('', [
+    Validators.required,
+  ]);
+
   emailFormControl = new FormControl('', [
     Validators.required,
     Validators.email,
   ]);
 
+  passwordFormControl = new FormControl('', [
+    Validators.required,
+  ]);
+
+
   matcher = new MyErrorStateMatcher();
+
 }

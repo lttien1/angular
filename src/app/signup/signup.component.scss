@@ -1,0 +1,32 @@
+.js-signup-tab-group {
+  width: 500px;
+  height: auto;
+  margin: 0 auto;
+  padding: 0 20px 20px 20px;
+  border: 1px solid #e6e6e6;
+  border-radius: 5px;
+  .js-logo {
+    width: 100px;
+  }
+  .js-signup-form {
+    width: 100%;
+    text-align: center;
+    .js-form-control-50 {
+      width: 50%;
+    }
+    .js-form-control-100 {
+      width: 100%;
+    }
+  }
+  .js-section {
+    display: flex;
+    height: 60px;
+    align-content: center;
+    align-items: center;
+  }
+  .js-btn {
+    width: 100%;
+    font-weight: 600;
+  }
+}
+
