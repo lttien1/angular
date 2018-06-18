@@ -7,11 +7,17 @@ import { AppComponent } from './app.component';
 import { SignupComponent } from './signup/signup.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AppMaterialModule } from './app-material.module';
+import { SignupCandidateComponent } from './signup-candidate/signup-candidate.component';
+import { SignupCompanyComponent } from './signup-company/signup-company.component';
+import { NavComponent } from './nav/nav.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SignupComponent,
+    SignupCandidateComponent,
+    SignupCompanyComponent,
+    NavComponent,
   ],
   imports: [
     FormsModule,

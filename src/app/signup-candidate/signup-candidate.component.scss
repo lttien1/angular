@@ -1,0 +1,26 @@
+.mt-signup-candidate-form {
+  width: 100%;
+  text-align: center;
+  .mt-form-control-50 {
+    width: 50%;
+  }
+  .mt-logo {
+    width: 100px;
+  }
+  .mt-form-control-50 {
+    width: 50%;
+  }
+  .mt-form-control-100 {
+    width: 100%;
+  }
+  .mt-section {
+    display: flex;
+    height: 60px;
+    align-content: center;
+    align-items: center;
+  }
+  .mt-btn {
+    width: 100%;
+    font-weight: 600;
+  }
+}
