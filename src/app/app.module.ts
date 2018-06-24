@@ -10,6 +10,7 @@ import { AppMaterialModule } from './app-material.module';
 import { SignupCandidateComponent } from './signup-candidate/signup-candidate.component';
 import { SignupCompanyComponent } from './signup-company/signup-company.component';
 import { NavComponent } from './nav/nav.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { NavComponent } from './nav/nav.component';
     SignupCandidateComponent,
     SignupCompanyComponent,
     NavComponent,
+    LoginComponent,
   ],
   imports: [
     FormsModule,

@@ -1,43 +1,69 @@
 import { Component, OnInit } from '@angular/core';
-
-import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
-import {ErrorStateMatcher} from '@angular/material/core';
-
-/** Error when invalid control is dirty, touched, or submitted. */
-export class MyErrorStateMatcher implements ErrorStateMatcher {
-  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
-    const isSubmitted = form && form.submitted;
-    return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
-  }
-}
-
+import {FormControl,  FormGroup, Validators, ValidatorFn,  AbstractControl } from '@angular/forms';
 
 @Component({
   selector: 'app-signup-candidate',
   templateUrl: './signup-candidate.component.html',
   styleUrls: ['./signup-candidate.component.scss']
 })
-export class SignupCandidateComponent implements OnInit {
 
-  constructor() { }
+export class SignupCandidateComponent implements OnInit {
+  firstName = '';
+  lastName = '';
+  email = '';
+  password = '';
+  termsAndConditions = false;
+  candidateSignupForm = null;
+  submitted = false;
 
   ngOnInit() {
+    this.candidateSignupForm = new FormGroup({
+      firstNameFormControl: new FormControl(this.firstName, [
+        Validators.required,
+      ]),
+      lastNameFormControl: new FormControl(this.lastName, [
+        Validators.required,
+      ]),
+
+      emailFormControl: new FormControl(this.email, [
+        Validators.required,
+        Validators.email,
+      ]),
+      passwordFormControl: new FormControl(this.password, [
+        Validators.required,
+      ]),
+
+      termsAndConditionsFormControl: new FormControl(this.termsAndConditions, [
+        Validators.requiredTrue,
+      ])
+    });
   }
 
-  firstNameFormControl = new FormControl('', [
-    Validators.required,
-  ]);
+  get firstNameFormControl() {
+    return this.candidateSignupForm.get('firstNameFormControl');
+  }
 
-  lastNameFormControl = new FormControl('', [
-    Validators.required,
-  ]);
+  get lastNameFormControl() {
+    return this.candidateSignupForm.get('lastNameFormControl');
+  }
 
-  emailFormControl = new FormControl('', [
-    Validators.required,
-    Validators.email,
-  ]);
+  get emailFormControl() {
+    return this.candidateSignupForm.get('emailFormControl');
+  }
 
-  passwordFormControl = new FormControl('', [
-    Validators.required,
-  ]);
+  get passwordFormControl() {
+    return this.candidateSignupForm.get('passwordFormControl');
+  }
+
+  get termsAndConditionsFormControl() {
+    return this.candidateSignupForm.get('termsAndConditionsFormControl');
+  }
+
+  onSignupWithEmail() {
+    this.submitted = true;
+    if (this.candidateSignupForm.invalid) {
+      return;
+    }
+    console.log('Form Control', this.candidateSignupForm);
+  }
 }
