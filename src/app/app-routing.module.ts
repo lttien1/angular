@@ -6,13 +6,14 @@ import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
   { path: 'signup', component: SignupComponent },
-  { path: 'login', component: LoginComponent }
+  { path: 'login', component: LoginComponent },
+  { path: '', redirectTo: '/signup', pathMatch: 'full' }
 ];
 
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule.forRoot(routes),
+    RouterModule.forRoot(routes, { enableTracing: true }),
   ],
   declarations: [],
   exports: [ RouterModule ]

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl,  FormGroup, Validators, ValidatorFn,  AbstractControl } from '@angular/forms';
+import { UserStorage } from '../utils/user-storage';
+import { AccountModel } from '../models';
 
 @Component({
   selector: 'app-signup-candidate',
@@ -8,6 +10,7 @@ import {FormControl,  FormGroup, Validators, ValidatorFn,  AbstractControl } fro
 })
 
 export class SignupCandidateComponent implements OnInit {
+  constructor(private userStorage: UserStorage) {}
   firstName = '';
   lastName = '';
   email = '';
@@ -64,6 +67,10 @@ export class SignupCandidateComponent implements OnInit {
     if (this.candidateSignupForm.invalid) {
       return;
     }
-    console.log('Form Control', this.candidateSignupForm);
+    const data: AccountModel = {
+      id: 1,
+      email: this.candidateSignupForm.value.emailFormControl,
+    };
+    this.userStorage.setUser(data);
   }
 }
